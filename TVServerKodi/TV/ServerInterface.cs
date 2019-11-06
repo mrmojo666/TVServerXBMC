@@ -77,9 +77,13 @@ namespace TVServerKodi
 
             try
             {
+                Console.WriteLine("Stop timeshift for channel " + idChannel + " for user '" + user.Name);
+                Log.Info("TVServerKodi: Stop timeshift for channel " + idChannel + " for user '" + user.Name);
+                controller.StopTimeShifting(ref user);
+
                 Console.WriteLine("Start timeshift for channel " + idChannel + " for user '" + user.Name);
                 Log.Info("TVServerKodi: Start timeshift for channel " + idChannel + " for user '" + user.Name);
-
+                
                 //result = controller.StartTimeShifting(ref user, idChannel, out vcard, cardId != -1); //This one is faster but we need to know the card id on beforehand
                 result = controller.StartTimeShifting(ref user, idChannel, out vcard);
             }
